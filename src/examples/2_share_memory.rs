@@ -9,9 +9,9 @@ fn main() {
         handles.push(thread::spawn(move ||
             {
                 println!("thread {} before increment", i);
-                println!("thread {} after increment", i);
                 let mut counter = counter.lock().unwrap();
                 *counter += 1;
+                println!("thread {} after increment", i);
                 *counter
             }
         ));
